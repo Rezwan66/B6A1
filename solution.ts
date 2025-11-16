@@ -39,3 +39,15 @@ function filterByRating(
   const filteredItems = items.filter(item => item.rating >= 4.0);
   return filteredItems;
 }
+
+type UserObject = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+};
+
+function filterActiveUsers(users: UserObject[]): UserObject[] {
+  const activeUsers = users.filter(user => user.isActive === true);
+  return activeUsers;
+}
