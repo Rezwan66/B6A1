@@ -66,9 +66,7 @@ printUserInfo({ name: 'Shaikh', age: 29 }, 'address'); // Error: ট্যাপ
 <details open>
 <summary><b>4. What is the use of enums in TypeScript? Provide an example of a numeric and string enum.</b></summary>
 
-টাইপস্ক্রিপ্ট এ অনেক সময় আমাদের কিছু ফিক্সড স্ট্রিং লিটেরাল দিয়ে টাইপ ডিফাইন করতে হয়। ঐসব স্ট্রিং লিটেরাল টাইপ গুলোকে বারবার বেবহার যোগ্য একটা অবজেক্ট আকারে enum এর ভিতর রাখা যায়। enum হচ্ছে একটা টাইপ, যেটার এলিমেন্ট গুলোকে আবার ভ্যালু হিসাবেও বেবহার করা যায়। উদাহরণ স্বরূপ:
-
-আমরা যদি বারবার বেবহারযোগ্য একটা ফাঙ্কশন বানাতে চাই যেটা দিনের নাম অনুযায়ী আমাদের বলে দিবে সেটা কি উইকেন্ড নাকি উইকডে, তাহলে আমরা দিনের নাম গুলো এমন একটা স্ট্রিং লিটেরাল টাইপ এর enum এ লিখতে পারি:
+টাইপস্ক্রিপ্ট এ অনেক সময় আমাদের কিছু ফিক্সড স্ট্রিং লিটেরাল দিয়ে টাইপ ডিফাইন করতে হয়। ঐসব স্ট্রিং লিটেরাল টাইপ গুলোকে বারবার বেবহার যোগ্য একটা অবজেক্ট আকারে `enum` এর ভিতর রাখা যায়। `enum` হচ্ছে একটা টাইপ, যেটার এলিমেন্ট গুলোকে আবার ভ্যালু হিসাবেও বেবহার করা যায়। উদাহরণ স্বরূপ - আমরা যদি বারবার বেবহারযোগ্য একটা ফাঙ্কশন বানাতে চাই যেটা দিনের নাম অনুযায়ী আমাদের বলে দিবে সেটা কি উইকেন্ড নাকি উইকডে, তাহলে আমরা দিনের নাম গুলো এমন একটা স্ট্রিং লিটেরাল টাইপ এর enum এ লিখতে পারি:
 
 ```ts
 enum DaysInDeutsch {
@@ -82,7 +80,7 @@ enum DaysInDeutsch {
 }
 ```
 
-এইখানে enum টা একটা স্ট্রিং টাইপ এর অবজেক্ট, যার keys আর values দোনোটাই একই স্ট্রিং টাইপ এর জার্মান ভাষায় দিনের নাম। এখন যদি আমরা দিনের ধরণের ফাঙ্কশন টা লেখি, খুব সহজেই আমরা enum অবজেক্ট টা বেবহার করেই কন্ডিশন গুলা লেখে ফেলতে পারবো:
+এইখানে `enum` টা একটা স্ট্রিং লিটেরাল টাইপ এর অবজেক্ট, যার `keys` আর `values` দোনোটাই একই স্ট্রিং টাইপ এর জার্মান ভাষায় দিনের নাম। এখন যদি আমরা দিনের ধরণের ফাঙ্কশন টা লেখি, খুব সহজেই আমরা `enum` অবজেক্ট টা বেবহার করেই কন্ডিশন গুলা লেখে ফেলতে পারবো:
 
 ```ts
 function getDayType(day: DaysInDeutsch): string {
@@ -94,11 +92,12 @@ function getDayType(day: DaysInDeutsch): string {
 }
 
 console.log(getDayType(DaysInDeutsch.Freitag)); // Output: Weekday ✅
+console.log(getDayType(DaysInDeutsch.Sonntag)); // Output: Weekend ✅
 ```
 
-আমরা এখানে খুব সহজেই অরিজিনাল enum অবজেক্ট টা বেবহার করেই আবার ফাঙ্কশন টাও কল করতে পারছি।
+আমরা এখানে খুব সহজেই অরিজিনাল `enum` অবজেক্ট টা বেবহার করেই আবার ফাঙ্কশন টাও কল করতে পারছি।
 
-enum দিয়ে আরেকটা উদাহরণ নিচে দেয়া হলো যেখানে দিক এর মান numeric ভ্যালু হিসাবে লিটেরাল সেট করা; যেটাকে বেবহার করে আমরা একটা ম্যাপ এ দিক নির্ণয় করতে পারি:
+`enum` দিয়ে আরেকটা উদাহরণ নিচে দেয়া হলো যেখানে দিক এর মান `numeric` ভ্যালু হিসাবে লিটেরাল সেট করা; যেটাকে বেবহার করে আমরা একটা ম্যাপ এ দিক নির্ণয় করতে পারি:
 
 ```ts
 enum Direction {
@@ -113,6 +112,61 @@ console.log(Direction.South); // Output: 2 ✅
 console.log(Direction.East); // Output: 3 ✅
 console.log(Direction.West); // Output: 4 ✅
 console.log(Direction.Left); // Error: ট্যাপেস্ক্রিপ্ট এরর দেখাবে - কারণ 'Left' নাম এর কোনো key Direction enum অবজেক্ট এর নেই ❌
+```
+
+</details>
+
+<details open>
+<summary><b>5. Provide an example of using union and intersection types in TypeScript.</b></summary>
+
+`union` এবং `intersection` বেবহার করে টাইপস্ক্রিপ্ট এর বিভিন্ন টাইপ কে সংযুক্ত করা হয়।
+
+`union` মানে হলো `OR` যেইটা বুঝায় ‘একটা না হইলে আরেকটা হৰে’। `union` `।` দ্বারা বোঝানো হয়। উদাহরণ:
+
+```ts
+type UserRole = 'customer' | 'seller' | 'admin';
+
+const getUserRole = (role: UserRole): string => {
+  if (role === 'customer') {
+    return 'Welcome Customer!';
+  } else if (role === 'seller') {
+    return 'Welcome Seller!';
+  } else if (role === 'admin') {
+    return 'Welcome Admin!';
+  } else {
+    return 'Please Register!';
+  }
+};
+
+console.log(getUserRole('admin')); // Output: Welcome Admin! ✅
+console.log(getUserRole('unknownUser')); // Error: ট্যাপেস্ক্রিপ্ট এরর দেখাবে - কারণ 'unknownUser' নাম এর কোনো type UserRole এর নেই ❌
+```
+
+`intersection` মানে হলো `AND` যেইটা বুঝায় ‘সব কিছু একসাথে নিয়ে আসা’। `intersection` `&` দ্বারা বোঝানো হয়।
+
+```ts
+type LibraryBook = {
+  id: number;
+  name: string;
+  yearPublished: number;
+};
+
+type HistoricalBook = {
+  category: string;
+  timeframeOfHistory: string;
+};
+
+type HistoricalLibraryBook = LibraryBook & HistoricalBook;
+
+const worldWar3Diary: HistoricalLibraryBook = {
+  id: 666,
+  name: 'World War 3: A Diary of Events',
+  yearPublished: 2030,
+  category: 'History',
+  timeframeOfHistory: '21st Century',
+};
+
+console.log(worldWar3Diary);
 ```
 
 </details>
