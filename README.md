@@ -142,7 +142,7 @@ console.log(getUserRole('admin')); // Output: Welcome Admin! ✅
 console.log(getUserRole('unknownUser')); // Error: ট্যাপেস্ক্রিপ্ট এরর দেখাবে - কারণ 'unknownUser' নাম এর কোনো type UserRole এর নেই ❌
 ```
 
-`intersection` মানে হলো `AND` যেইটা বুঝায় ‘সব কিছু একসাথে নিয়ে আসা’। `intersection` `&` দ্বারা বোঝানো হয়।
+`intersection` মানে হলো `AND` যেইটা বুঝায় ‘সব কিছু একসাথে নিয়ে আসা’। `intersection` `&` দ্বারা বোঝানো হয়। উদাহরণ:
 
 ```ts
 type LibraryBook = {
