@@ -36,6 +36,11 @@ class Person {
 function filterByRating(
   items: { title: string; rating: number }[]
 ): { title: string; rating: number }[] {
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].rating < 0 || items[i].rating > 5) {
+      throw new Error('Rating must be between 0-5!');
+    }
+  }
   const filteredItems = items.filter(item => item.rating >= 4.0);
   return filteredItems;
 }
