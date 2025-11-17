@@ -5,7 +5,7 @@
 ### Blog Post
 
 <details open>
-<summary>**1. What are some differences between interfaces and types in TypeScript?**</summary>
+<summary><b>1. What are some differences between interfaces and types in TypeScript?</b></summary>
 
 টাইপস্ক্রিপ্ট এ দুই ভাবেই টাইপ ডিফাইন করা যায়: টাইপ এলিয়াসিং করে অথবা ইন্টারফেস অবজেক্ট লিখে। এই দুইটার মধ্যে কিছু ডিফারেন্স আছে যেমন:
 
@@ -16,7 +16,8 @@
 
 </details>
 
-**2. What is the use of the keyof keyword in TypeScript? Provide an example.**
+<details open>
+<summary><b>2. What is the use of the keyof keyword in TypeScript? Provide an example.</b></summary>
 
 `keyof` হচ্ছে টাইপস্ক্রিপ্ট এর একটা টাইপ কন্সট্রেইন্ট অপারেটর। তার মানে হলো এই অপারেটর বেবহার করে আমরা টাইপস্ক্রিপ্ট এ টাইপ এর কিছু রুলস এনফোর্স করতে পারি। `keyof` অপারেটর বেবহার করে আমরা একটা অবজেক্ট টাইপ এর `key` গুলো ডাইরেক্ট স্ট্রিং লিটারেল টাইপ হিসাবে পেয়ে যাই - যেটা দিয়ে আমরা নতুন একটা টাইপ সেট করতে পারি।
 
@@ -44,28 +45,20 @@ printUserInfo({ name: 'Shaikh', age: 29 }, 'name'); // Output: Shaikh ✅
 printUserInfo({ name: 'Shaikh', age: 29 }, 'address'); // Error: ট্যাপেস্ক্রিপ্ট এরর দেখাবে - কারণ 'address' নাম এর কোনো key User অবজেক্ট এর নেই ❌
 ```
 
-### Accordion List Example
+</details>
+
+<!-- <details open>
+<summary><b>2. What is the use of the keyof keyword in TypeScript? Provide an example.</b></summary>
+
+</details> -->
 
 <details open>
-  <summary>_First Topic: Introduction_</summary>
+<summary><b>3. Explain the difference between any, unknown, and never types in TypeScript.</b></summary>
 
-Content for the first introduction topic goes here.
+টাইপস্ক্রিপ্ট এ কোনো ভ্যারিয়েবল এর টাইপ ডিফাইন না করলে টাইপস্ক্রিপ্ট সেটাকে ডিফল্ট ভাবে ধরে নেয় `any` টাইপ। `any` মানে হলো সেই ভ্যারিয়েবল যেটা যেকোনো টাইপ এর হতে পারে। আমরা যদি কখনো কোনো ভ্যারিয়েবল এর জন্য টাইপ চেকিং বন্ধ করতে চাই, তাহলে `any` বেবহার করতে পারি। কিন্তু অ্যাকচুয়াল টাইপ চেকিং এর জন্য কখনো `any` বেবহার করা যাবেনা!
 
-</details>
+`unknown` কিছুটা `any` এর মতন: কারণ `unknown`-ও `any` এর মতন ইউসার থেকে যেকোনো টাইপ এর ইনপুট নিবে। কিন্তু কোনো ভ্যারিয়েবল এর টাইপ চেকিং এর ক্ষেত্রে `unknown` বেশি সেফ, কারণ টাইপস্ক্রিপ্ট বিহাইন্ড দা সিন সেই ভ্যারিয়েবল এর একটা টাইপ সেভ করে রাখে। তার মানে হচ্ছে, আমরা যদি `typeof` অপারেটর দিয়ে সেই ভ্যারিয়েবল এর টাইপ খুঁজতে চাই, তখন টাইপস্ক্রিপ্ট আমাদের সেই ভ্যারিয়েবল এর যেই টাইপ এর ভ্যালু এখন এসাইন করা আছে, সেই টাইপ টা দিয়ে দিবে। কিন্তু ভ্যারিয়েবল এর টাইপ যদি `any` সেট করা থাকে তাহলে আমরা সেই ভ্যারিয়েবল এর এখনকার ভ্যালু’র টাইপ টা পাবনা। এইজন্য কোনো ভ্যারিয়েবল এর টাইপ কি হবে সেটা যদি আমরা না জানি, সেটার টাইপ `unknown` সেট করাটা অনেকটা উপকারী।
 
-<details>
-  <summary>**Second Topic: Setup Instructions**</summary>
-
-1. Step one
-2. Step two
-3. Step three
-</details>
-
-<details>
-  <summary>**Third Topic: Troubleshooting**</summary>
-
-Check the troubleshooting guide for common issues.
+`never` টাইপ বেবহার হয় ওইসব ক্ষেত্রে, যেইখান পর্যন্ত আমরা কখনো পৌঁছাবোই না। যেমন: একটা ফাঙ্কশন এর `return` টাইপ যদি `never` সেট করা হয়, সেটা বোঝাবে যে ওই ফাঙ্কশন কখনো সঠিক ভাবে শেষ হবেনা - সেটা একটা `error` `throw` করবে অথবা একটা লুপ এর মধ্যে আটকে থাকবে। `never` এর মতন আরেকটা টাইপ আছে যেটা হলো `void`। একটা ফাঙ্কশন এর রিটার্ন টাইপ যদি `void` থাকে, তার মানে হলো সেই ফাঙ্কশন’টা ঠিকমতোই সম্পুন্ন হবে কিন্তু কিছু রিটার্ন করবে না। যেমন কোনো ফাঙ্কশন থেকে আমরা যদি শুধু কনসোল লগ করি, সেইটার রিটার্ন টাইপ আমরা ভয়েড সেট করতে পারি।
 
 </details>
-
-And you can continue adding more sections below...
