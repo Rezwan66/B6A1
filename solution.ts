@@ -73,11 +73,18 @@ function printBookDetails(book: Book): void {
 }
 
 function getUniqueValues<T>(array1: T[], array2: T[]): T[] {
-  const uniqueArray: T[] = [...array1];
+  const uniqueArray: T[] = [];
+
+  let uniqueIndex: number = 0;
+  for (let i = 0; i < array1.length; i++) {
+    uniqueArray[uniqueIndex] = array1[i];
+    uniqueIndex++;
+  }
+
   for (let i = 0; i < array2.length; i++) {
     let isDuplicate = false;
 
-    for (let j = 0; j < uniqueArray.length; j++) {
+    for (let j = 0; j < uniqueIndex; j++) {
       if (uniqueArray[j] === array2[i]) {
         isDuplicate = true;
         break;
@@ -85,7 +92,8 @@ function getUniqueValues<T>(array1: T[], array2: T[]): T[] {
     }
 
     if (!isDuplicate) {
-      uniqueArray.push(array2[i]);
+      uniqueArray[uniqueIndex] = array2[i];
+      uniqueIndex++;
     }
   }
   return uniqueArray;
