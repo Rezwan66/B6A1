@@ -85,3 +85,29 @@ function getUniqueValues<T>(array1: T[], array2: T[]): T[] {
   }
   return uniqueArray;
 }
+
+interface ProductObject {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+
+function calculateTotalPrice(products: ProductObject[]): number {
+  if (!products.length) {
+    return 0;
+  }
+
+  const totalPrice = products.reduce((acc, prod) => {
+    const { price, quantity, discount } = prod;
+    const grossPrice = price * quantity;
+
+    if (discount) {
+      return (acc += grossPrice - (grossPrice * discount) / 100);
+    } else {
+      return (acc += grossPrice);
+    }
+  }, 0);
+
+  return totalPrice;
+}
