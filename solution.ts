@@ -42,7 +42,11 @@ function filterByRating(
     }
   }
   const filteredItems = items.filter(item => item.rating >= 4.0);
-  return filteredItems;
+  const filteredItemsWithDecimalRating = filteredItems.map(item => ({
+    title: item.title,
+    rating: Number(item.rating.toFixed(1)),
+  }));
+  return filteredItemsWithDecimalRating;
 }
 
 type UserObject = {
