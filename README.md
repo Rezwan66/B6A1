@@ -4,7 +4,8 @@
 
 ### Blog Post
 
-**1. What are some differences between interfaces and types in TypeScript?**
+<details open>
+<summary>**1. What are some differences between interfaces and types in TypeScript?**</summary>
 
 টাইপস্ক্রিপ্ট এ দুই ভাবেই টাইপ ডিফাইন করা যায়: টাইপ এলিয়াসিং করে অথবা ইন্টারফেস অবজেক্ট লিখে। এই দুইটার মধ্যে কিছু ডিফারেন্স আছে যেমন:
 
@@ -12,6 +13,8 @@
 - টাইপ এলিয়াস খুব সহজেই ডিফাইন করা যায়। এইজন্য সিম্পল প্রিমিটিভ টাইপ এর জন্য বেশিরভাগ সময়ে টাইপ এলিয়াস ব্যবহৃত হয়।
 - যেহেতু ইন্টারফেস অবজেক্ট আকারে বেশি ভালো কাজ করে, তাই অবজেক্ট ওরিয়েন্টেড প্রোগ্রামিং (OOP) তে বেশিরভাগ সময় ইন্টারফেস বেবহার হয়, কারণ অনেক সময় টাইপ গুলা extends কীওয়ার্ড দিয়ে জোড়া লাগানো হয়।
 - টাইপ এলিয়াস এর ক্ষেত্রে দুইটা আলাদা টাইপ কে জোড়া লাগানো হয় `&` কীওয়ার্ড দিয়ে, আর ইন্টারফেস এর ক্ষেত্রে `extends` কীওয়ার্ড দিয়ে।
+
+</details>
 
 **2. What is the use of the keyof keyword in TypeScript? Provide an example.**
 
@@ -25,7 +28,7 @@ type Stationeries = {
   pen: string;
 };
 
-type MySchoolBag = keyof Stationeries; // 'pencil' | 'stapler' | 'pen'
+type MySchoolBag = keyof Stationeries; // Output: 'pencil' | 'stapler' | 'pen'
 
 // Example 2:
 type User = {
@@ -38,5 +41,31 @@ const printUserInfo = (obj: User, key: keyof User): void => {
 };
 
 printUserInfo({ name: 'Shaikh', age: 29 }, 'name'); // Output: Shaikh ✅
-printUserInfo({ name: 'Shaikh', age: 29 }, 'address'); // Error: ট্যাপেস্ক্রিপ্ট এরর দেখাবে - কারণ 'address' নাম এর কোনো key User এর নেই ❌
+printUserInfo({ name: 'Shaikh', age: 29 }, 'address'); // Error: ট্যাপেস্ক্রিপ্ট এরর দেখাবে - কারণ 'address' নাম এর কোনো key User অবজেক্ট এর নেই ❌
 ```
+
+### Accordion List Example
+
+<details open>
+  <summary>_First Topic: Introduction_</summary>
+
+Content for the first introduction topic goes here.
+
+</details>
+
+<details>
+  <summary>**Second Topic: Setup Instructions**</summary>
+
+1. Step one
+2. Step two
+3. Step three
+</details>
+
+<details>
+  <summary>**Third Topic: Troubleshooting**</summary>
+
+Check the troubleshooting guide for common issues.
+
+</details>
+
+And you can continue adding more sections below...
