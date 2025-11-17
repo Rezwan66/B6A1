@@ -66,3 +66,22 @@ function printBookDetails(book: Book): void {
     }, Available: ${book.isAvailable ? 'Yes' : 'No'}`
   );
 }
+
+function getUniqueValues<T>(array1: T[], array2: T[]): T[] {
+  const uniqueArray: T[] = [...array1];
+  for (let i = 0; i < array2.length; i++) {
+    let isDuplicate = false;
+
+    for (let j = 0; j < uniqueArray.length; j++) {
+      if (uniqueArray[j] === array2[i]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+
+    if (!isDuplicate) {
+      uniqueArray.push(array2[i]);
+    }
+  }
+  return uniqueArray;
+}
